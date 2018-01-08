@@ -33,6 +33,7 @@ public class BoxBounce : MonoBehaviour {
     IEnumerator Move(Vector3 sPos, Vector3 ePos, float seconds) {
         //wenn außerhalb des canvas, während animation button nicht bedienbar
         if (trigger == false) {
+            //schiebt hoch
             button.GetComponent<Button>().interactable = false;
             float t = 0f;
             while (t <= 1f)
@@ -47,6 +48,7 @@ public class BoxBounce : MonoBehaviour {
         //wenn innterhalb des canvas, während animation button nicht bedienbar
         else if (trigger == true)
         {
+            //schiebt runter
             button.GetComponent<Button>().interactable = false;
             float t = 0f;
             while (t <= 1f)
@@ -63,6 +65,6 @@ public class BoxBounce : MonoBehaviour {
     //schiebe box nach oben
     public void BoxCall () {
         box.SetActive(true);
-        StartCoroutine(Move(startPos,endPos, time));
+        StartCoroutine(Move(startPos, endPos, time));
     }
 }
