@@ -8,6 +8,7 @@ public class ArrowAnim : MonoBehaviour {
     public GameObject arrowObj;
     public float wiggleDist;
     public float durationMove;
+    public float durationFade;
     private Vector3 startPos;
     private Vector3 endPos;
 
@@ -17,12 +18,12 @@ public class ArrowAnim : MonoBehaviour {
         startPos = arrowObj.transform.localPosition; 
         endPos = new Vector3(arrowObj.transform.localPosition.x + wiggleDist, arrowObj.transform.localPosition.y, 0);
 
-        StartCoroutine(FadeIn());
+        StartCoroutine(FadeIn(durationFade));
         StartCoroutine(Move(startPos, endPos, durationMove));
 	}
 
     public void DestroyThis() {
-        StartCoroutine(FadeOut());
+        StartCoroutine(FadeOut(durationFade));
     }
 
     IEnumerator Move(Vector3 sPos, Vector3 ePos, float seconds) {
@@ -48,20 +49,22 @@ public class ArrowAnim : MonoBehaviour {
         }
     }
 
-    IEnumerator FadeIn() {
-        //fade in
-        for (float i = 0; i <= 1; i += Time.deltaTime)
+    IEnumerator FadeIn(float seconds) {
+        float t = 0f;
+        while (t <= 1f)
         {
-            arrowObj.GetComponent<Image>().color = new Color(1, 1, 1, i);
+            t += Time.deltaTime / seconds;
+            arrowObj.GetComponent<Image>().color = new Color(1, 1, 1, t);
             yield return null;
         }
     }
 
-    IEnumerator FadeOut() {
-        //fade out
-        for (float i = 1; i >= 0; i -= Time.deltaTime)
+    IEnumerator FadeOut(float seconds) {
+        float t = 1f;
+        while (t >= 0f)
         {
-            arrowObj.GetComponent<Image>().color = new Color(1, 1, 1, i);
+            t -= Time.deltaTime / seconds;
+            arrowObj.GetComponent<Image>().color = new Color(1, 1, 1, t);
             yield return null;
         }
     }
