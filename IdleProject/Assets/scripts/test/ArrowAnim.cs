@@ -21,6 +21,10 @@ public class ArrowAnim : MonoBehaviour {
         StartCoroutine(Move(startPos, endPos, durationMove));
 	}
 
+    public void DestroyThis() {
+        StartCoroutine(FadeOut());
+    }
+
     IEnumerator Move(Vector3 sPos, Vector3 ePos, float seconds) {
         //loopt zwischen start position und endposition
         while (true)
