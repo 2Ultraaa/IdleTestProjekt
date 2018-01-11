@@ -8,6 +8,8 @@ public class ArrowAnim : MonoBehaviour {
     public GameObject arrowObj;
     public float wiggleDist;
     public float durationMove;
+
+    [RangeAttribute(0f, 1f)]
     public float durationFade;
     private Vector3 startPos;
     private Vector3 endPos;
@@ -15,8 +17,8 @@ public class ArrowAnim : MonoBehaviour {
 	void Start () {
         //objekt muss mit noch ausgeblendet und zerstört werden, bestenfalls an ein if gekoppelt
         //start position ist an der stelle an der das parent sich befindet, end position ist um wiggleDist in der y-achse verschoben
-        startPos = arrowObj.transform.localPosition; 
-        endPos = new Vector3(arrowObj.transform.localPosition.x + wiggleDist, arrowObj.transform.localPosition.y, 0);
+        startPos = Vector3.zero; 
+        endPos = new Vector3(0 + wiggleDist, 0, 0);
 
         StartCoroutine(FadeIn(durationFade));
         StartCoroutine(Move(startPos, endPos, durationMove));

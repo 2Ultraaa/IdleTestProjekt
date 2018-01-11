@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MenuButton : MonoBehaviour
+public class ArrowButton : MonoBehaviour
 {
 
     public GameObject prefab;
@@ -33,10 +33,9 @@ public class MenuButton : MonoBehaviour
 
     void CallArrow() {
         arrow = Instantiate(prefab) as GameObject;
-        //skalierung ist anscheinend periodischer localScale wert, d. h. bei .9f .9999999999999999f = 1
-        arrow.GetComponent<RectTransform>().localScale = new Vector3(.9f, .9f, .9f);
-        arrow.transform.SetParent(FindObjectOfType<Canvas>().transform);
-        arrow.GetComponent<ArrowTransform>().myStuff(obj, myCase);
+        arrow.transform.SetParent(FindObjectOfType<Canvas>().transform, false);
+        arrow.GetComponent<ArrowTransform>().ArrowPlacement(obj, myCase);
+        arrow.transform.SetParent(obj.transform);
     }
 
     void DestroyArrow() {

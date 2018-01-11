@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BoxBounce : MonoBehaviour {
+public class BoxFly : MonoBehaviour {
 
     public Canvas canvas;
     public GameObject box;
-    public GameObject button;
     public float time;
 
     RectTransform canvasTrans;
@@ -34,7 +33,7 @@ public class BoxBounce : MonoBehaviour {
         //wenn außerhalb des canvas, während animation button nicht bedienbar
         if (trigger == false) {
             //schiebt hoch
-            button.GetComponent<Button>().interactable = false;
+            this.gameObject.GetComponent<Button>().interactable = false;
             float t = 0f;
             while (t <= 1f)
             {
@@ -43,13 +42,13 @@ public class BoxBounce : MonoBehaviour {
                 yield return new WaitForFixedUpdate();
             }
             trigger = !trigger;
-            button.GetComponent<Button>().interactable = true;
+            this.gameObject.GetComponent<Button>().interactable = true;
         }
         //wenn innterhalb des canvas, während animation button nicht bedienbar
         else if (trigger == true)
         {
             //schiebt runter
-            button.GetComponent<Button>().interactable = false;
+            this.gameObject.GetComponent<Button>().interactable = false;
             float t = 0f;
             while (t <= 1f)
             {
@@ -58,7 +57,7 @@ public class BoxBounce : MonoBehaviour {
                 yield return new WaitForFixedUpdate();
             }
             trigger = !trigger;
-            button.GetComponent<Button>().interactable = true;
+            this.gameObject.GetComponent<Button>().interactable = true;
         }
     }
 

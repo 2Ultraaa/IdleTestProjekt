@@ -32,7 +32,7 @@ public class CombatTextAnim : MonoBehaviour
         GameObject temp = Instantiate(CBT_prefab) as GameObject;
         RectTransform tempRect = temp.GetComponent<RectTransform>();
 
-        temp.transform.SetParent(FindObjectOfType<Canvas>().transform);
+        temp.transform.SetParent(parent.transform);
 
         tempRect.transform.localPosition = parent.transform.localPosition;
         tempRect.transform.localScale = parent.transform.localScale;

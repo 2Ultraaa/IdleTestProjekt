@@ -83,7 +83,7 @@ public class ArrowTransform : MonoBehaviour {
     RectTransform nextToRect;
     Vector2 nextToSize;
 
-    public void myStuff(GameObject nextToObj, int myCase) {
+    public void ArrowPlacement(GameObject nextToObj, int myCase) {
         arrowRect = arrowObj.GetComponent<RectTransform>();
         nextToRect = nextToObj.GetComponent<RectTransform>();
         nextToSize = nextToRect.rect.size;
