@@ -59,7 +59,6 @@ public class BoxScale : MonoBehaviour {
         }
         else if (trigger == true)
         {
-            //fade out soll langsamer sein, d. h. sichtbarer
             StartCoroutine(Beenden(scaleTime * 2));
         }
     }
@@ -94,7 +93,6 @@ public class BoxScale : MonoBehaviour {
 
     public void CallScale() {
         boxPrefab.SetActive(true);
-        //fade in soll langsamer sein, d. h. sichtbarer
         StartCoroutine(FadeIn(scaleTime * 2));
         StartCoroutine(LerpScale(scaleTime));
     }
