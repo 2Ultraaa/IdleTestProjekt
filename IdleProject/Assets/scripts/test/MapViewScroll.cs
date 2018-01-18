@@ -23,7 +23,7 @@ public class MapViewScroll : MonoBehaviour {
         {
             currentScale = minScale;
         }
-        this.gameObject.GetComponent<RectTransform>().transform.localScale = new Vector2(currentScale, currentScale);
+        this.gameObject.GetComponent<RectTransform>().transform.localScale = new Vector3(currentScale, currentScale, 1);
     }
 
 }

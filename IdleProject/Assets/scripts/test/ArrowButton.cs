@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ArrowButton : MonoBehaviour
 {
-
+    //funktioniert nur für einen pfeil auf einmal, weil arrow keine temporäre variable ist
     public GameObject prefab;
     [RangeAttribute(1, 4)]
     public int myCase;
